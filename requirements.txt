@@ -1,10 +1,12 @@
-# external requirements
-pandas
-numpy
-scikit-learn
+black
 dvc
 dvc_gdrive
-uvicorn
 fastapi
+flake8
 joblib
+numpy
+pandas
+python-dotenv
+scikit-learn
+uvicorn
 xgboost
