@@ -3,6 +3,8 @@ MLOPS
 
 This Repo is dedicated to end-to-end Machine Learning Project with MLOps
 
+![Alt text](image.png)
+
 Project Organization
 ------------
 
