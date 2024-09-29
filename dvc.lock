@@ -1,0 +1,19 @@
+schema: '2.0'
+stages:
+  extract_data:
+    cmd: python src/data/data_collection.py
+    deps:
+    - path: data/raw/zipped/transactions.zip
+      hash: md5
+      md5: 3e92ff602647ef6130867b433a410316
+      size: 30522086
+    - path: src/data/data_collection.py
+      hash: md5
+      md5: fc734599f78fb9d42465b6569488a2cf
+      size: 1501
+    outs:
+    - path: data/raw/extracted/
+      hash: md5
+      md5: 157f6021c8e5607288368a8b8a44341b.dir
+      size: 609937737
+      nfiles: 1

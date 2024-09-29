@@ -1,0 +1,8 @@
+stages:
+  extract_data:
+    cmd: python src/data/data_collection.py
+    deps:
+    - data/raw/zipped/transactions.zip
+    - src/data/data_collection.py
+    outs:
+    - data/raw/extracted/
