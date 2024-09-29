@@ -1,4 +1,4 @@
-MLOPS
+MLOPS - Credit Card Fraud Detection
 ==============================
 
 This Repo is dedicated to end-to-end Machine Learning Project with MLOps
