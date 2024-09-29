@@ -3,6 +3,8 @@ MLOPS - Credit Card Fraud Detection
 
 This Repo is dedicated to end-to-end Machine Learning Project with MLOps
 
+## DVC Pipeline Developmemnt Status:
+
 ![Alt text](image.png)
 
 Project Organization
