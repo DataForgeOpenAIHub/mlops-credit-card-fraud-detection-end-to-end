@@ -6,3 +6,14 @@ stages:
     - src/data/data_collection.py
     outs:
     - data/raw/extracted/
+
+  data_processing:
+    cmd: python src/data/data_processing.py
+    deps:
+    - data/raw/extracted/transactions.txt
+    - src/data/data_processing.py
+    outs:
+    - data/inprogress/
+    metrics:
+    - reports/data_processing_metrics.json:
+        cache: false

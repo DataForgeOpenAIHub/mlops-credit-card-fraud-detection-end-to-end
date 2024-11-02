@@ -17,3 +17,24 @@ stages:
       md5: 157f6021c8e5607288368a8b8a44341b.dir
       size: 609937737
       nfiles: 1
+  data_processing:
+    cmd: python src/data/data_processing.py
+    deps:
+    - path: data/raw/extracted/transactions.txt
+      hash: md5
+      md5: 00ae682514a9351e13a92c2da4343e3e
+      size: 609937737
+    - path: src/data/data_processing.py
+      hash: md5
+      md5: 42de764319776633fe42c354338f8aad
+      size: 4984
+    outs:
+    - path: data/inprogress/
+      hash: md5
+      md5: 4e79c2ae06f821a9993a2b04794644e5.dir
+      size: 142040407
+      nfiles: 1
+    - path: reports/data_processing_metrics.json
+      hash: md5
+      md5: 1fa835a6f96a0a746de7c91a3d1bdb52
+      size: 3167
