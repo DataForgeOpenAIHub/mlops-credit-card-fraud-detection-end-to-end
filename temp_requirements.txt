@@ -11,3 +11,4 @@ scikit-learn
 uvicorn
 xgboost
 regex
+tables

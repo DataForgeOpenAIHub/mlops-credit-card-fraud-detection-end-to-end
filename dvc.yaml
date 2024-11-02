@@ -13,7 +13,15 @@ stages:
     - data/raw/extracted/transactions.txt
     - src/data/data_processing.py
     outs:
-    - data/inprogress/
+    - data/inprogress/interim_transactions.csv
+    - data/inprogress/interim_transactions.h5
     metrics:
     - reports/data_processing_metrics.json:
+        cache: false
+    - reports/processing_summary.json:
+        cache: false
+    plots:
+    - reports/data_exploration.txt:
+        cache: false
+    - reports/preprocess_n_analysis.txt:
         cache: false

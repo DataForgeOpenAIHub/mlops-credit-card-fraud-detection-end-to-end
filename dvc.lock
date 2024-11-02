@@ -26,15 +26,30 @@ stages:
       size: 609937737
     - path: src/data/data_processing.py
       hash: md5
-      md5: 42de764319776633fe42c354338f8aad
-      size: 4984
+      md5: 52ad0941cd1fb2bc8652f7583f66b5ec
+      size: 16325
     outs:
-    - path: data/inprogress/
+    - path: data/inprogress/interim_transactions.csv
       hash: md5
-      md5: 4e79c2ae06f821a9993a2b04794644e5.dir
-      size: 142040407
-      nfiles: 1
+      md5: 74f5c48e91397ba42830970547e3983c
+      size: 144399496
+    - path: data/inprogress/interim_transactions.h5
+      hash: md5
+      md5: 3633fd730e60b7d00f9c5b5a396a51e2
+      size: 177546777
+    - path: reports/data_exploration.txt
+      hash: md5
+      md5: 889f4e5597bfbb710bb1a4e657b64041
+      size: 17504
     - path: reports/data_processing_metrics.json
       hash: md5
-      md5: 1fa835a6f96a0a746de7c91a3d1bdb52
-      size: 3167
+      md5: b781b5c4d245f09f824b9862d1430bce
+      size: 3729
+    - path: reports/preprocess_n_analysis.txt
+      hash: md5
+      md5: b953424ae854500ead274360fa1a465c
+      size: 2182
+    - path: reports/processing_summary.json
+      hash: md5
+      md5: aba88940b8e76be6ee6b10a7bec679cb
+      size: 327
