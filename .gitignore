@@ -9,6 +9,8 @@ __pycache__/
 .Python
 env/
 venv/
+.venv/
+.mlops_venv/
 build/
 develop-eggs/
 dist/
@@ -86,3 +88,6 @@ target/
 
 # Mypy cache
 .mypy_cache/
+
+# credentials
+*/gdrive.json

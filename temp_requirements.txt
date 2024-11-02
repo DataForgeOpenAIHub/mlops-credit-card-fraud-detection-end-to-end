@@ -1,0 +1,12 @@
+black
+dvc
+dvc_gdrive
+fastapi
+flake8
+joblib
+numpy
+pandas
+python-dotenv
+scikit-learn
+uvicorn
+xgboost
