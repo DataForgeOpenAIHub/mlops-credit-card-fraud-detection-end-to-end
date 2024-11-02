@@ -6,7 +6,7 @@ This Repo is dedicated to end-to-end Machine Learning Project with MLOps
 ## DVC Pipeline Execution command:
 
 ```bash
-python -m venv .mlops_venv  # Create a new virtual environment in the .mlops_venv directory
+python3 -m venv .mlops_venv  # Create a new virtual environment in the .mlops_venv directory
 source .mlops_venv/bin/activate  # Activate the virtual environment
 
 pip install -e .  # Install the current package in editable mode
