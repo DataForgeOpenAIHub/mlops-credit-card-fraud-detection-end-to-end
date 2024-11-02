@@ -6,24 +6,29 @@ This Repo is dedicated to end-to-end Machine Learning Project with MLOps
 ## DVC Pipeline Execution command:
 
 ```bash
-# Install DVC if you haven't already:
-pip install dvc
-```
+python -m venv .mlops_venv  # Create a new virtual environment in the .mlops_venv directory
+source .mlops_venv/bin/activate  # Activate the virtual environment
 
-```bash
-# Add Google Drive as a remote storage for DVC
-# Replace 'myremote' with your preferred remote name
-# Replace 'folder_id' with the actual ID of your Google Drive folder
-dvc remote add -d myremote gdrive://folder_id/path/to/dvc/storage
-```
+pip install -e .  # Install the current package in editable mode
 
-```bash
+dvc init  # Initialize a new DVC repository
+
+dvc dag  # Display the DVC pipeline as a directed acyclic graph (DAG)
+
 # To execute a machine learning pipeline defined in DVC, you can use the following command
 # This will execute Data Preprocessing, Feature Engineering, Model Training, and Evaluation stages
 # as defined in the dvc.yaml file, in the correct order and only if there are changes
 dvc repro
-```
 
+# Add Google Drive as a remote storage for DVC
+# Replace 'myremote' with your preferred remote name
+# Replace 'folder_id' with the actual ID of your Google Drive folder
+dvc remote add -d myremote gdrive://folder_id/path/to/dvc/storage
+
+python3 src/gdrive_setup/setup_dvc_remote.py  # Run a script to set up the DVC remote configuration with gdrve client secret keys
+
+git push  # Push dvc data changes to the Google drive 
+```
 
 
 Project Organization
@@ -129,6 +134,3 @@ In the final phase of my exploration, I undertook comprehensive data wrangling a
 #### Continuous Improvement
 - Update and refine the model with new data
 - Stay informed about new techniques and research in fraud detection
-
-
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
