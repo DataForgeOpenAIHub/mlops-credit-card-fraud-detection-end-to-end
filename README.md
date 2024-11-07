@@ -1,6 +1,10 @@
 MLOPS - Credit Card Fraud Detection
 ==============================
 
+Data Source: ![Capital One Data Science Challenge](https://github.com/CapitalOneRecruiting/DS)  
+
+![image](https://github.com/user-attachments/assets/0b8d2663-ef94-42b7-9c9a-1f3ad6eb0bfd)
+
 This Repo is dedicated to end-to-end Machine Learning Project with MLOps
 
 ## DVC Pipeline Execution command:
