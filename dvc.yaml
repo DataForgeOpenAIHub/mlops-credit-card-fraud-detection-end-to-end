@@ -1,6 +1,6 @@
 stages:
   extract_data:
-    cmd: python src/data/data_collection.py
+    cmd: python3 src/data/data_collection.py
     deps:
     - data/raw/zipped/transactions.zip
     - src/data/data_collection.py
@@ -8,7 +8,7 @@ stages:
     - data/raw/extracted/
 
   data_processing:
-    cmd: python src/data/data_processing.py
+    cmd: python3 src/data/data_processing.py
     deps:
     - data/raw/extracted/transactions.txt
     - src/data/data_processing.py
@@ -25,3 +25,24 @@ stages:
         cache: false
     - reports/preprocess_n_analysis.txt:
         cache: false
+  
+  advanced_wrangling:
+    cmd: python3 src/data-wrangling-advance/adv_data_processing.py
+    deps:
+    - data/inprogress/interim_transactions.h5
+    - src/data-wrangling-advance/adv_data_processing.py
+    outs:
+    - data/processed/processed_transactions.csv
+    - data/processed/processed_transactions.h5
+    - reports/figures/transaction_distributions.png
+    metrics:
+    - reports/advanced_wrangling_metrics.json:
+        cache: false
+    - reports/advanced_wrangling_summary.json:
+        cache: false
+    plots:
+    - reports/advanced_data_exploration.txt:
+        cache: false
+    - reports/advanced_feature_analysis.txt:
+        cache: false
+

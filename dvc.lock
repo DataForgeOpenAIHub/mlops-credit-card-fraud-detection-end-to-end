@@ -1,7 +1,7 @@
 schema: '2.0'
 stages:
   extract_data:
-    cmd: python src/data/data_collection.py
+    cmd: python3 src/data/data_collection.py
     deps:
     - path: data/raw/zipped/transactions.zip
       hash: md5
@@ -18,7 +18,7 @@ stages:
       size: 609937737
       nfiles: 1
   data_processing:
-    cmd: python src/data/data_processing.py
+    cmd: python3 src/data/data_processing.py
     deps:
     - path: data/raw/extracted/transactions.txt
       hash: md5
@@ -35,7 +35,7 @@ stages:
       size: 144399496
     - path: data/inprogress/interim_transactions.h5
       hash: md5
-      md5: 3633fd730e60b7d00f9c5b5a396a51e2
+      md5: 29c1040ee5333b92104e641db711f2ef
       size: 177546777
     - path: reports/data_exploration.txt
       hash: md5
@@ -43,13 +43,53 @@ stages:
       size: 17504
     - path: reports/data_processing_metrics.json
       hash: md5
-      md5: b781b5c4d245f09f824b9862d1430bce
+      md5: f7df6cb25f2c06f110bee5dcd12f2a31
       size: 3729
     - path: reports/preprocess_n_analysis.txt
       hash: md5
-      md5: b953424ae854500ead274360fa1a465c
+      md5: 37e95c9a55fabe4a4d38959543ac3130
       size: 2182
     - path: reports/processing_summary.json
       hash: md5
-      md5: aba88940b8e76be6ee6b10a7bec679cb
+      md5: 1ee7c37327d40d267d66d74f853ab0f5
       size: 327
+  advanced_wrangling:
+    cmd: python3 src/data-wrangling-advance/adv_data_processing.py
+    deps:
+    - path: data/inprogress/interim_transactions.h5
+      hash: md5
+      md5: 29c1040ee5333b92104e641db711f2ef
+      size: 177546777
+    - path: src/data-wrangling-advance/adv_data_processing.py
+      hash: md5
+      md5: 2f612a0a7a522de88a28c872dd053a1a
+      size: 34828
+    outs:
+    - path: data/processed/processed_transactions.csv
+      hash: md5
+      md5: 6f7d8acde06b563ac7ea7e8bd4aa5de8
+      size: 173398800
+    - path: data/processed/processed_transactions.h5
+      hash: md5
+      md5: a157476380ae9fdb89fd832ebe7405fc
+      size: 124846896
+    - path: reports/advanced_data_exploration.txt
+      hash: md5
+      md5: 6ce4f4f4c06848d0f32961fa55e50f45
+      size: 2535
+    - path: reports/advanced_feature_analysis.txt
+      hash: md5
+      md5: 372fd4bfb68ab4bea2f70adb9dba9b94
+      size: 2012
+    - path: reports/advanced_wrangling_metrics.json
+      hash: md5
+      md5: 522903179b5cb03d7048ec753f87febf
+      size: 6176
+    - path: reports/advanced_wrangling_summary.json
+      hash: md5
+      md5: e05bba0c54ec4cde489bfe225e65ea4f
+      size: 368
+    - path: reports/figures/transaction_distributions.png
+      hash: md5
+      md5: 16d50eaae31ac15fc683a7e2ceac2037
+      size: 39208
