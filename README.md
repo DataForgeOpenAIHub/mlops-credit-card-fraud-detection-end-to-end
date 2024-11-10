@@ -39,50 +39,58 @@ Project Organization
 ------------
 
     ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
-    ├── README.md          <- The top-level README for developers using this project.
+    ├── Makefile
+    ├── README.md
     ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
+    │   ├── external
+    │   ├── inprogress                    <- Intermediate processed data
+    │   │   ├── interim_transactions.csv  <- Output from basic processing
+    │   │   └── interim_transactions.h5   <- HDF5 format for preserving data types
+    │   ├── processed                     <- Final processed data
+    │   │   ├── processed_transactions.csv
+    │   │   └── processed_transactions.h5
+    │   └── raw
+    │       ├── zipped                    <- Original zipped data
+    │       │   └── transactions.zip
+    │       └── extracted                 <- Extracted raw data
+    │           └── transactions.txt
     │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
+    ├── docs
+    ├── models
+    ├── notebooks
+    ├── references
+    ├── reports                           <- Analysis reports and metrics
+    │   ├── figures
+    │   │   └── transaction_distributions.png
+    │   ├── data_processing_metrics.json  <- Basic processing metrics
+    │   ├── processing_summary.json
+    │   ├── advanced_wrangling_metrics.json
+    │   ├── advanced_wrangling_summary.json
+    │   ├── data_exploration.txt
+    │   ├── preprocess_n_analysis.txt
+    │   ├── advanced_data_exploration.txt
+    │   └── advanced_feature_analysis.txt
     │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
-    │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
-    │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
-    │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
-    │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
+    ├── requirements.txt
+    ├── setup.py
+    ├── src
+    │   ├── __init__.py
+    │   ├── data                         <- Basic data processing scripts
+    │   │   ├── data_collection.py       <- Extract zipped data
+    │   │   ├── data_processing.py       <- Basic preprocessing
+    │   │   └── make_dataset.py
     │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
+    │   ├── data-wrangling-advance       <- Advanced data processing
+    │   │   └── adv_data_processing.py   <- Advanced feature engineering
     │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
+    │   ├── features
+    │   ├── models
+    │   └── visualization
     │
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
-
+    ├── .dvc                             <- DVC files and configuration
+    ├── dvc.yaml                         <- DVC pipeline definition
+    ├── dvc.lock                         <- DVC pipeline state
+    └── tox.ini
 
 --------
 
