@@ -1,4 +1,4 @@
-MLOPS - Credit Card Fraud Detection
+2MLOPS - Credit Card Fraud Detection
 ==============================
 
 ## Data Source
@@ -16,6 +16,9 @@ source .mlops_venv/bin/activate  # Activate the virtual environment
 pip install -e .  # Install the current package in editable mode
 
 dvc init  # Initialize a new DVC repository
+
+dvc get https://github.com/CapitalOneRecruiting/DS transactions.zip -o data/raw/zipped/
+dvc add data/raw/zipped/transactions.zip
 
 dvc dag  # Display the DVC pipeline as a directed acyclic graph (DAG)
 
