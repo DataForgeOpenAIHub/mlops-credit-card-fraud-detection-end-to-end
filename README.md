@@ -1,4 +1,4 @@
-2MLOPS - Credit Card Fraud Detection
+MLOPS - Credit Card Fraud Detection
 ==============================
 
 ## Data Source
