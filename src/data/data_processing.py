@@ -1,4 +1,4 @@
-import io
+# data_procrssing.py
 import json
 import logging
 import os
@@ -8,8 +8,6 @@ import warnings
 
 import numpy as np
 import pandas as pd
-import regex as re
-import requests
 from src.logger import CustomLogger, create_log_path
 from tabulate import tabulate
 
@@ -250,7 +248,7 @@ class DataAnalyzer:
         """Save exploration text to file"""
         try:
             os.makedirs("reports", exist_ok=True)
-            with open("reports/data_exploration.txt", "w") as f:
+            with open("reports/data_exploration.txt", "w", encoding="utf-8") as f:
                 f.write("\n".join(self.exploration_text))
             logger.save_logs("Data exploration text saved successfully", log_level="info")
         except Exception as e:
