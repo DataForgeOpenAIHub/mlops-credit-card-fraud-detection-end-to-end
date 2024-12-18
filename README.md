@@ -3,7 +3,8 @@ MLOPS - Credit Card Fraud Detection
 
 ## Data Source
 Data used in this project is sourced from the [Capital One Data Science Challenge GitHub Repository](https://github.com/CapitalOneRecruiting/DS).
-<img src="https://github.com/user-attachments/assets/0b8d2663-ef94-42b7-9c9a-1f3ad6eb0bfd" alt="Challenge Image" width="400"/>
+
+<img src="https://github.com/user-attachments/assets/0b8d2663-ef94-42b7-9c9a-1f3ad6eb0bfd" alt="Challenge Image" width="300"/>
 
 This Repo is dedicated to end-to-end Machine Learning Project with MLOps
 
@@ -20,7 +21,7 @@ docker-compose up
 docker-compose down
 ```
 
-## DVC Pipeline Execution command with using docker:
+## DVC Pipeline Execution command without using docker:
 
 ```bash
 python3 -m venv .mlops_venv  # Create a new virtual environment in the .mlops_venv directory
@@ -47,7 +48,7 @@ dvc remote add -d myremote gdrive://folder_id/path/to/dvc/storage
 
 python3 src/gdrive_setup/setup_dvc_remote.py  # Run a script to set up the DVC remote configuration with gdrve client secret keys
 
-git push  # Push dvc data changes to the Google drive 
+git push  # Push dvc data changes to the Google drive or any other remote source like AWS (as set in the files)
 ```
 
 
