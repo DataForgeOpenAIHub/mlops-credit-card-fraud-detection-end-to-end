@@ -7,7 +7,20 @@ Data used in this project is sourced from the [Capital One Data Science Challeng
 
 This Repo is dedicated to end-to-end Machine Learning Project with MLOps
 
-## DVC Pipeline Execution command:
+## Docker commands to execute complete pipeline with DVC
+
+```bash
+# 1. Build the Docker Image
+docker-compose build
+# 2. Run the Container
+docker-compose up
+```
+```bash
+# 3. Stop and Remove Containers
+docker-compose down
+```
+
+## DVC Pipeline Execution command with using docker:
 
 ```bash
 python3 -m venv .mlops_venv  # Create a new virtual environment in the .mlops_venv directory
@@ -41,59 +54,96 @@ git push  # Push dvc data changes to the Google drive
 Project Organization
 ------------
 
-    ├── LICENSE
-    ├── Makefile
-    ├── README.md
-    ├── data
-    │   ├── external
-    │   ├── inprogress                    <- Intermediate processed data
-    │   │   ├── interim_transactions.csv  <- Output from basic processing
-    │   │   └── interim_transactions.h5   <- HDF5 format for preserving data types
-    │   ├── processed                     <- Final processed data
+    mlops/                           # Root project directory
+    ├── config/                      # Configuration files
+    │   ├── gdrive.json              # Google Drive credentials
+    │   └── gdrive_setup.md          # GDrive setup instructions
+    │
+    ├── data/                         # Data storage directory
+    │   ├── external/                 # Third-party data
+    │   ├── inprogress/               # Intermediate processing results
+    │   │   ├── interim_transactions.csv
+    │   │   ├── interim_transactions.h5
+    │   │   └── readme.md
+    │   ├── processed/                 # Final processed datasets
     │   │   ├── processed_transactions.csv
     │   │   └── processed_transactions.h5
-    │   └── raw
-    │       ├── zipped                    <- Original zipped data
-    │       │   └── transactions.zip
-    │       └── extracted                 <- Extracted raw data
-    │           └── transactions.txt
+    │   └── raw/                       # Original data files
+    │       ├── extracted/             # Extracted data
+    │       │   └── transactions.txt
+    │       └── zipped/                # Zipped data
+    │           ├── transactions.zip
+    │           └── transactions.zip.dvc
     │
-    ├── docs
-    ├── models
-    ├── notebooks
-    ├── references
-    ├── reports                           <- Analysis reports and metrics
-    │   ├── figures
+    ├── docs/                          # Project documentation
+    │
+    ├── logs/                          # Pipeline execution logs
+    │   ├── advanced_wrangling/
+    │   ├── extract_dataset/
+    │   └── process_dataset/
+    │
+    ├── models/                         # Trained model artifacts
+    │
+    ├── notebooks/                      # Jupyter analysis notebooks
+    │   ├── 1_load_data_exploration.ipynb
+    │   ├── 2_data_visualization.ipynb
+    │   ├── 3_data_wrangling_modeling.ipynb
+    │   ├── 4-model-testing.ipynb
+    │   └── 5-model-deployment.ipynb
+    │
+    ├── references/                      # External references docs
+    │
+    ├── reports/                         # Pipeline Analysis & Training outputs
+    │   ├── figures/
     │   │   └── transaction_distributions.png
-    │   ├── data_processing_metrics.json  <- Basic processing metrics
-    │   ├── processing_summary.json
+    │   ├── advanced_data_exploration.txt
+    │   ├── advanced_feature_analysis.txt
     │   ├── advanced_wrangling_metrics.json
     │   ├── advanced_wrangling_summary.json
-    │   ├── data_exploration.txt
-    │   ├── preprocess_n_analysis.txt
-    │   ├── advanced_data_exploration.txt
-    │   └── advanced_feature_analysis.txt
+    │   ├── data_processing_metrics.json
+    │   ├── feature_scaling.txt
+    │   └── other metrics and summary files
     │
-    ├── requirements.txt
-    ├── setup.py
-    ├── src
-    │   ├── __init__.py
-    │   ├── data                         <- Basic data processing scripts
-    │   │   ├── data_collection.py       <- Extract zipped data
-    │   │   ├── data_processing.py       <- Basic preprocessing
+    ├── src/
+    │   ├── data/
+    │   │   ├── __init__.py
+    │   │   ├── data_collection.py        # Data extraction and collection
+    │   │   ├── data_processing.py        # Basic data preprocessing
     │   │   └── make_dataset.py
     │   │
-    │   ├── data-wrangling-advance       <- Advanced data processing
-    │   │   └── adv_data_processing.py   <- Advanced feature engineering
+    │   ├── data-wrangling-advance/
+    │   │   ├── __init__.py
+    │   │   └── adv_data_processing.py     # Advanced data processing
     │   │
-    │   ├── features
-    │   ├── models
-    │   └── visualization
+    │   ├── gdrive_setup/
+    │   │   └── setup_dvc_remote.py        # Google Drive setup for DVC
+    │   │
+    │   ├── models/
+    │   │   ├── __init__.py
+    │   │   ├── predict_model.py           # Model prediction scripts
+    │   │   └── train_model.py             # Model training scripts
+    │   │
+    │   ├── undersampling-experiments/
+    │   │   ├── __init__.py
+    │   │   └── build_features.py
+    │   │
+    │   └── visualization/
+    │       ├── __init__.py
+    │       └── visualize.py               # Visualization utilities
     │
-    ├── .dvc                             <- DVC files and configuration
-    ├── dvc.yaml                         <- DVC pipeline definition
-    ├── dvc.lock                         <- DVC pipeline state
-    └── tox.ini
+    ├── Dockerfile                         # Docker configuration
+    ├── docker-compose.yml                 # Docker resource mapping
+    ├── dvc.yaml                           # DVC pipeline definition
+    ├── dvc.lock                           # DVC pipeline state
+    ├── requirements.txt                   # Production dependencies
+    ├── dev-requirements.txt               # Development dependencies
+    ├── contraints.txt                     # Version constraints
+    ├── tmp_requirements.txt
+    ├── setup.py                           # Package setup
+    ├── setup.md                           # Setup guide
+    ├── test_environment.py
+    └── tox.ini                            # Testing config
+
 
 --------
 
