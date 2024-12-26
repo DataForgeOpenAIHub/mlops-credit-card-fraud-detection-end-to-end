@@ -31,6 +31,7 @@ pip install -e .  # Install the current package in editable mode
 
 dvc init  # Initialize a new DVC repository
 
+# Download the dataset and set the source
 dvc get https://github.com/CapitalOneRecruiting/DS transactions.zip -o data/raw/zipped/
 dvc add data/raw/zipped/transactions.zip
 
@@ -148,7 +149,7 @@ Project Organization
 
 --------
 
-# notebook description
+# Notebook Description
 --------
 - `1_load_data_exploration.ipynb`: Jupyter Notebook for loading and understanding the dataset.
 - `2_data_visualization.ipynb`: Jupyter Notebook for data visualization and plotting.
