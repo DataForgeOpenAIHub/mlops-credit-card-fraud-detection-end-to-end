@@ -49,7 +49,7 @@ dvc remote add -d myremote gdrive://folder_id/path/to/dvc/storage
 
 python3 src/gdrive_setup/setup_dvc_remote.py  # Run a script to set up the DVC remote configuration with gdrve client secret keys
 
-git push  # Push dvc data changes to the Google drive or any other remote source like AWS (as set in the files)
+dvc push  # Push dvc data changes to the Google drive or any other remote source like AWS (as set in the files)
 ```
 
 
