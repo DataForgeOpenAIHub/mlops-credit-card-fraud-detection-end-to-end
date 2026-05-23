@@ -39,7 +39,7 @@ dvc dag  # Display the DVC pipeline as a directed acyclic graph (DAG)
 
 # To execute a machine learning pipeline defined in DVC, you can use the following command
 # This will execute Data Preprocessing, Feature Engineering, Model Training, and Evaluation stages
-# as defined in the dvc.yaml file, in the correct order and only if there are changes
+# as defined in the dvc.yaml file, in the correct order and only if there are changes in data or any other code changes
 dvc repro
 
 # Add Google Drive as a remote storage for DVC
@@ -191,7 +191,7 @@ In the final phase of my exploration, I undertook comprehensive data wrangling a
 
 #### Model Development
 - **Model Selection and Tuning**: Explore various classification models (e.g., Random Forest, Gradient Boosting, XGBoost, Support Vector Machines) with hyperparameter tuning for each cluster
-- **Ensemble Strategies**: Implement techniques like stacking to combine predictions from different models, weighting them based on performance and cluster association
+- **Ensemble Strategies**: Implement techniques like stacking to combine predictions from different models, weighting them based on performance and cluster association throughout model training
 
 #### Evaluation and Monitoring
 - Regularly evaluate models on validation and holdout sets
